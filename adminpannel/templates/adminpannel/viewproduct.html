@@ -1,0 +1,51 @@
+{% extends "adminpannel/partials/adminpartials.html" %}
+{% block header %}
+{% include "adminpannel/partials/adminheader.html" %}
+{% endblock %}
+
+
+{% block sidenav %}
+{% include "adminpannel/partials/adminsidenav.html" %}
+{% endblock %}
+
+{%block content%}
+<section class="wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel">
+				<header class="panel-heading"><h1>Product Details</h1></header>
+				<section class="panel-body">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td style="width: 30%;">Product Name :</td>
+								<td>{{product_instance.product_name}}</td>
+							</tr>
+							<tr>
+								<td style="width: 30%;">Product Description :</td>
+								<td>{{product_instance.product_description}}</td>
+							</tr>
+							<tr>
+								<td style="width: 30%;">Product Price :</td>
+								<td>{{product_instance.price}}</td>
+							</tr>
+							<tr>
+								<td style="width: 30%;">Product Status</td>
+								{% if product_instance.is_active == 1 %}
+								<td class="text-success">Active</td>
+								{% else %}
+								<td class="text-danger">Inactive</td>
+								{% endif %}
+							</tr>
+							<tr>
+								<td style="width: 30%;">Product Image :</td>
+								<td><img style="width: 50%;" src="{{product_instance.product_picture.url}}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+		</div>
+	</div>
+</section>
+{% endblock %}
